@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 public class Main {
     public static void main(String[] args) {
         try {
-            String path = "./words_dictionary.txt";
+            String path = "words_dictionary.txt";
             System.out.println("Welcome to WordLadder Well!!\n");
 
             Set<String> dictSet = new HashSet<>();
