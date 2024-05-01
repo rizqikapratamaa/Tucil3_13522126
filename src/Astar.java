@@ -21,9 +21,15 @@ public class Astar extends WordLadder  {
         PriorityQueue<Node> queue = new PriorityQueue<>(Comparator.comparingInt(node -> node.steps + heuristic(node.word, endWord)));
         queue.add(new Node(beginWord, 1, null));
 
+        // Create a list to store the checked nodes
+        List<String> checkedNodes = new ArrayList<>();
+
         while (!queue.isEmpty()){
             Node node = queue.remove();
             String word = node.word;
+
+            // Add the current node to the checked nodes list
+            checkedNodes.add(word);
 
             if (word.equals(endWord)){
                 List<String> ladder = new ArrayList<>();
@@ -31,6 +37,7 @@ public class Astar extends WordLadder  {
                     ladder.add(0, node.word);
                     node = node.prev;
                 }
+                System.out.println("Number of Checked Nodes: " + checkedNodes.size());
                 return ladder;
             }
             char[] arr = word.toCharArray();
