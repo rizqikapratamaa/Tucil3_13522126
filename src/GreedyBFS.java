@@ -1,6 +1,8 @@
 import java.util.*;
 
 public class GreedyBFS extends WordLadder {
+    
+    // method for counting the heuristic feature (the sum of the different character)
     private int heuristic(String word, String endWord){
         int diff = 0;
         for (int i = 0; i < word.length(); i++){
@@ -13,24 +15,28 @@ public class GreedyBFS extends WordLadder {
 
     @Override
     public List<String> findLadder(String beginWord, String endWord, List<String> wordList){
+        
+        // if the end word is not available in the dictionary, then return empty list
         if (!wordList.contains(endWord)){
             return Collections.emptyList();
         }
 
-        Set<String> dict = new HashSet<>(wordList);
+        Set<String> dict = new HashSet<>(wordList); // convert wordList into a HashSet for faster look-up times
+
+        // initializes a priority queue that orders nodes solely based on the heuristic value, characteristic of Greedy BFS
         PriorityQueue<Node> queue = new PriorityQueue<>(Comparator.comparingInt(node -> heuristic(node.word, endWord)));
         queue.add(new Node(beginWord, 1, null));
 
-        // Create a list to store the checked nodes
+        // create a list to store the checked nodes
         List<String> checkedNodes = new ArrayList<>();
 
         while (!queue.isEmpty()){
-            Node node = queue.remove();
-            String word = node.word;
+            Node node = queue.remove(); // removes the node with the lowest number of steps from the queue
+            String word = node.word; // stores the current word from the node
 
-            // Add the current node to the checked nodes list
             checkedNodes.add(word);
 
+            // checks if the current word is the endWord
             if (word.equals(endWord)){
                 List<String> ladder = new ArrayList<>();
                 while (node != null){
@@ -41,24 +47,27 @@ public class GreedyBFS extends WordLadder {
                 return ladder;
             }
 
+            // converts the word to a character array to make checking easier
             char[] arr = word.toCharArray();
-            for (int i = 0; i < arr.length; i++){
+            for (int i = 0; i < arr.length; i++){ // loops over each character in the array
                 for (char c = 'a'; c < 'z'; c++){
-                    char temp = arr[i];
-                    if (arr[i] != c){
+                    char temp = arr[i]; // stores the original character for restoration later
+                    if (arr[i] != c){ // change the character if the character is different
                         arr[i] = c;
                     }
 
-                    String newWord = new String(arr);
+                    String newWord = new String(arr); // creates a new string from the modified character
+                    
+                    // if the new word is in the dictionary, add a mew node for the new word
                     if (dict.contains(newWord)){
                         queue.add(new Node(newWord, node.steps + 1, node));
-                        dict.remove(newWord);
+                        dict.remove(newWord); // remove the new word from the dictionary to avoid revisiting
                     }
 
-                    arr[i] = temp;
+                    arr[i] = temp; // restores the original character
                 }
             }
         }
-        return Collections.emptyList();
+        return Collections.emptyList(); // return empty list if no path found
     }
 }

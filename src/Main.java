@@ -11,6 +11,8 @@ public class Main {
             System.out.println("Welcome to WordLadder Well!!\n");
 
             Set<String> dictSet = new HashSet<>();
+            
+            // add every line of the txt file to Hashset for a faster look-up.
             try (Stream<String> stream = Files.lines(Paths.get(path))) {
                 stream.forEach(dictSet::add);
             }
@@ -22,6 +24,7 @@ public class Main {
             String beginWord = "";
             String endWord = "";
 
+            // enter and validate the start word and end word. 
             while (!passWord){
                 beginScanner = new Scanner(System.in);
                 System.out.print("Enter the start word: ");
@@ -49,15 +52,18 @@ public class Main {
                     passWord = true;
                     dictSet.removeIf(word -> word.length() != finalBeginWord.length());
                 }
+
             }
 
-            
+            // convert the previous HashSet into list to be read (the component is definitely unique)
             List<String> dictList = new ArrayList<>(dictSet);
 
             boolean passAlgo = false;
-            long startTime = 0;
+            
+            long startTime = 0; // start counting the elapsed time
+            
+            // algorithm validation
             while (!passAlgo){
-
                 System.out.println("\nChoose the algorithm: ");
                 System.out.println("1. Uniform-Cost Search (UCS)");
                 System.out.println("2. A* Algorithm");
@@ -68,27 +74,62 @@ public class Main {
                 try {
                     int algorithm = algoScanner.nextInt();
                     System.out.println();
+                    
+                    // if user select 1, then use Uniform-Cost-Search algorithm
                     if (algorithm == 1){
                         startTime = System.currentTimeMillis();
                         passAlgo = true;
                         UCS ucs = new UCS();
                         List<String> ladder =  ucs.findLadder(beginWord, endWord, dictList);
-                        System.out.println("Path: " + String.join(" -> ", ladder));
+                        
+                        // if the algorithm found nothing than print message to terminal
+                        if (ladder.size() == 0){
+                            System.out.println("No path found from " + beginWord + " to " + endWord);
+                        }
+
+                        // if the algorithm found the path, then print the path to terminal
+                        else{
+                            System.out.println("Path: " + String.join(" -> ", ladder));
+                        }
                         
                     }
+
+                    // if user select 2, then use A* algorithm
                     else if (algorithm == 2){
                         startTime = System.currentTimeMillis();
                         passAlgo = true;
                         Astar astar = new Astar();
                         List<String> ladder = astar.findLadder(beginWord, endWord, dictList);
-                        System.out.println("Path: " + String.join(" -> ", ladder));
+                        
+                        // if the algorithm found nothing than print message to terminal
+                        if (ladder.size() == 0){
+                            System.out.println("No path found from " + beginWord + " to " + endWord);
+                        }
+
+                        // if the algorithm found the path, then print the path to terminal
+                        else{
+                            System.out.println("Path: " + String.join(" -> ", ladder));
+                        }
+
                     }
+
+                    // if user select 3, then use Greedy Best-First-Search algorithm
                     else if (algorithm == 3){
                         startTime = System.currentTimeMillis();
                         passAlgo = true;
                         GreedyBFS gbfs = new GreedyBFS();
                         List<String> ladder = gbfs.findLadder(beginWord, endWord, dictList);
-                        System.out.println("Path: " + String.join(" -> ", ladder));
+                        
+                        // if the algorithm found nothing than print message to terminal
+                        if (ladder.size() == 0){
+                            System.out.println("No path found from " + beginWord + " to " + endWord);
+                        }
+
+                        // if the algorithm found the path, then print the path to terminal
+                        else{
+                            System.out.println("Path: " + String.join(" -> ", ladder));
+                        }
+
                     }
                     else{
                         System.out.println("There's no choice with that number.");
@@ -100,8 +141,8 @@ public class Main {
             }
 
             long endTime = System.currentTimeMillis();
-            long executionTime = endTime - startTime;
-            System.out.println("Execution time: " + executionTime + " ms");
+            long executionTime = endTime - startTime; // calculate the elapsed time
+            System.out.println("Execution time: " + executionTime + " ms"); // print the elapsed time
 
             beginScanner.close();
             endScanner.close();

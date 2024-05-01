@@ -14,6 +14,6 @@ public abstract class WordLadder {
     }
 
 
-
+    // virtual method to find the path
     public abstract List<String> findLadder(String beginWord, String endWord, List<String> wordList);
 }
