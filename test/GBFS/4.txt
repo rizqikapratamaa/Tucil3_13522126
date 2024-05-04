@@ -1,0 +1,5 @@
+Start Word: Zeus
+End Word: Damn
+Number of Checked Nodes: 17
+Path: zeus -> deus -> deas -> dean -> denn -> dann -> damn
+Execution time: 16 ms

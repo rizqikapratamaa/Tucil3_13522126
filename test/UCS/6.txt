@@ -1,0 +1,5 @@
+Start Word: Ballon
+End Word: Change
+Number of Checked Nodes: 20486
+Path: ballon -> ballot -> ballet -> callet -> calles -> carles -> carnes -> caines -> clines -> clings -> clangs -> changs -> change
+Execution time: 453 ms

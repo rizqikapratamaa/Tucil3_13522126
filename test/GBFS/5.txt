@@ -1,0 +1,5 @@
+Start Word: Meats
+End Word: Lover
+Number of Checked Nodes: 19
+Path: meats -> moats -> loats -> louts -> louty -> louey -> lovey -> lover
+Execution time: 31 ms

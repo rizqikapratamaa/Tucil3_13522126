@@ -1,0 +1,5 @@
+Start Word: Ballon
+End Word: Change
+Number of Checked Nodes: 117
+Path: ballon -> ballow -> callow -> carlow -> carlot -> carnot -> cannot -> cannat -> cannae -> cannie -> lannie -> linnie -> winnie -> wienie -> weenie -> weanie -> jeanie -> jeanne -> deanne -> dianne -> dianna -> sianna -> shanna -> channa -> changa -> change
+Execution time: 47 ms

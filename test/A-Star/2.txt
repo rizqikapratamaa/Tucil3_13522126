@@ -1,0 +1,5 @@
+Start Word: Make
+End Word: Pure
+Number of Checked Nodes: 5
+Path: make -> mare -> pare -> pure
+Execution time: 15 ms

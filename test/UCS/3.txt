@@ -1,0 +1,5 @@
+Start Word: Pan
+End Word: And
+Number of Checked Nodes: 4183
+Path: pan -> prn -> arn -> ard -> and
+Execution time: 41 ms

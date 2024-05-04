@@ -1,0 +1,5 @@
+Start Word: Hit
+End Word: Log
+Number of Checked Nodes: 7
+Path: hit -> lit -> lot -> log
+Execution time: 15 ms

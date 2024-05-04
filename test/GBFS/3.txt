@@ -1,0 +1,5 @@
+Start Word: Pan
+End Word: And
+Number of Checked Nodes: 9
+Path: pan -> pad -> pbd -> abd -> and
+Execution time: 16 ms

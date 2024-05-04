@@ -34,6 +34,28 @@ Tucil3_13522126
 │   ├── UCS.java
 │   ├── WordLadder.java
 │   └── words_dictionary.txt
+├── test
+│   ├── A-Star
+│   │   ├── 1.txt
+│   │   ├── 2.txt
+│   │   ├── 3.txt
+│   │   ├── 4.txt
+│   │   ├── 5.txt
+│   │   └── 6.txt
+│   ├── GBFS
+│   │   ├── 1.txt
+│   │   ├── 2.txt
+│   │   ├── 3.txt
+│   │   ├── 4.txt
+│   │   ├── 5.txt
+│   │   └── 6.txt
+│   └── UCS
+│       ├── 1.txt
+│       ├── 2.txt
+│       ├── 3.txt
+│       ├── 4.txt
+│       ├── 5.txt
+│       └── 6.txt
 └── README
 ```
 

@@ -1,0 +1,5 @@
+Start Word: Meats
+End Word: Lover
+Number of Checked Nodes: 10194
+Path: meats -> moats -> mosts -> moses -> moser -> loser -> lover
+Execution time: 248 ms
